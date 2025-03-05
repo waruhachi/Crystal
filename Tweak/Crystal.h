@@ -1,17 +1,27 @@
-//
-//  Crystal.h
-//  Crystal
-//
-//  Created by Alexandra Aurora Göttlicher
-//
+#import <Foundation/Foundation.h>
+#import <Cephei/HBPreferences.h>
 
-#import <UIKit/UIKit.h>
+HBPreferences* preferences = nil;
+BOOL enabled = NO;
 
-NSUserDefaults* preferences;
-BOOL pfEnabled;
-CGFloat pfVolumeThreshold;
-NSString* pfBelowThresholdMode;
-NSString* pfAboveThresholdMode;
+// volume control mode
+BOOL volumeModeControlSwitch = YES;
+NSString* volumeThresholdValue = @"0.3";
+NSString* volumeDecreaseModeValue = @"0";
+NSString* volumeIncreaseModeValue = @"2";
+
+// call mode
+BOOL callControlSwitch = YES;
+NSString* inCallModeValue = @"0";
+NSString* outOfCallModeValue = @"2";
+
+// music mode
+BOOL musicControlSwitch = YES;
+NSString* playingModeValue = @"2";
+NSString* pausedModeValue = @"0";
+
+// miscellaneous
+BOOL pauseAtZeroVolumeSwitch = YES;
 
 @interface SBVolumeControl : NSObject
 - (float)_effectiveVolume;
@@ -19,24 +29,21 @@ NSString* pfAboveThresholdMode;
 
 @interface SBMediaController : NSObject
 + (id)sharedInstance;
+- (BOOL)isPlaying;
+- (BOOL)isPaused;
+- (id)_nowPlayingInfo;
+- (BOOL)playForEventSource:(long long)arg1;
+- (BOOL)pauseForEventSource:(long long)arg1;
 @end
 
 @interface AVOutputDevice : NSObject
-- (void)setCurrentBluetoothListeningMode:(NSString *)listeningMode;
-@end
-
-@interface MRAVOutputDevice : NSObject
-@end
-
-@interface MRAVConcreteOutputDevice : MRAVOutputDevice
+- (void)setCurrentBluetoothListeningMode:(NSString *)arg1;
 @end
 
 @interface MPAVRoute : NSObject
-- (MRAVConcreteOutputDevice *)logicalLeaderOutputDevice;
+- (id)logicalLeaderOutputDevice;
 @end
 
 @interface MPAVRoutingController : NSObject
-@property(nonatomic, readonly)MPAVRoute* pickedRoute;
+@property(readonly, nonatomic)MPAVRoute* pickedRoute;
 @end
-
-void setListeningMode(NSString* mode);

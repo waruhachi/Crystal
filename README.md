@@ -1,16 +1,23 @@
 # Crystal
-Control your headphone's listening mode with the volume buttons.
+Headphone listening mode automations
 
 ## Installation
-1. Download the latest `deb` from the [releases](https://github.com/AlexandraAurora/Crystal/releases)
-2. Install the `deb` using your preferred method
-
-## Compatibility
-iPhone, iPad and iPod touch running iOS/iPadOS 14 or later.
+1. Add this repository to your Package Manager: https://repo.litten.love
+2. Install Crystal
 
 ## Compiling
-  - [Theos](https://theos.dev/) is required to compile the project
-  - Edit the root `Makefile` to use your Theos SDK
+  - No dependencies
+  - You may want to edit the `Makefiles` to suit your theos installation
 
 ## License
-[GPL-3.0](https://github.com/AlexandraAurora/Crystal/blob/main/COPYING)
+If you take code from this repository please link it, or my [twitter](https://twitter.com/schneelittchen) to your project  
+You may not redistribute this source code or packages from it  
+You may not use this project to make profit like money
+
+## Credits
+  - Changing Listening Modes
+    - [LaughingQuoll](https://twitter.com/LaughingQuoll)
+  - Icon and Banner
+    - [74k1_](https://twitter.com/74k1_)
+  - Duo twitter cell
+    - [arm64e](https://twitter.com/arm64e), [MrGcGamer](https://twitter.com/MrGcGamer)
